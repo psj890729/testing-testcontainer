@@ -1,0 +1,32 @@
+apply plugin: 'java'
+defaultTasks 'clean', 'test'
+
+
+sourceSets {
+	main {
+		java {srcDir 'src/main/java'}
+		resources {srcDir 'src/main/resources'}
+	}
+	test {
+		java {srcDir 'src/test/java'}
+		resources {srcDir 'src/test/resources'}
+	}
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'junit:junit:4.12'
+  compile 'org.hamcrest:hamcrest-all:1.3'
+  compile group: 'org.easytesting', name: 'fest-assert-core', version: '2.0M10'
+  compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.1'
+
+//web-ui-test, webdriver, selenide 
+  compile 'com.codeborne:selenide:5.2.2'
+  testCompile "org.testcontainers:selenium:1.12.3"
+}
+
+
+
